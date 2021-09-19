@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
+        <Provider store={store}>     {/* Components and Store are connecting through the "Provider" */}
             <App />
         </Provider>
     </React.StrictMode>,

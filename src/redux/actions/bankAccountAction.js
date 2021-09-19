@@ -1,23 +1,12 @@
-// import axios from "axios";
-export const DEPOSIT = "DEPOSIT";
-export const WITHDRAW = "WITHDRAW";
+import { DEPOSIT, WITHDRAW } from "./type";
 
-export const depositInMoney = (amount) => {
+export const depositInMoney = (amount) => {     // depositinMoney function ==> action creator
     return dispatch => {
         dispatch({
-            type: DEPOSIT,
-            payload: amount
+            type: DEPOSIT,                  // Action (description)
+            payload: amount                 // pass the payloard data
         });
-
-        // axios.post(`${data.apiDomain}/api/users/signup`, userSignupBodyInfo)
-        //     .then(res => {
-        //         dispatch({ type: ADD_JWT_TOKEN, payload: userSignupBodyInfo });
-        //     }).catch(err => {
-        //         console.log(err);
-        //         dispatch({ type: REMOVE_JWT_TOKEN });
-        //     })
-
-    };
+    }
 };
 
 export const witdrawInMoney = (amount) => {
@@ -26,6 +15,5 @@ export const witdrawInMoney = (amount) => {
             type: WITHDRAW,
             payload: amount
         });
-    };
-
+    }
 };

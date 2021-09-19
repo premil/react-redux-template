@@ -1,33 +1,25 @@
-import { ALL_LIST, ERROR_LIST } from "../actions/postAction";
+import { ALL_LIST, ERROR_LIST } from "../actions/type";
 
-// const initialState = { List: [] };
+const initialState = {
+    users: [],
+    loading: true
+};
 
-// const postReducer = (state = initialState, action) => {
-//     if (action.type === ALL_LIST) {
-//         return {
-//             ...state,
-//             List: action.payload
-//         };
-//     }
-// };
-
-//export default postReducer;
-
-const initialState = { users: [], loading: true };
-
-const postReducer = (state = initialState, action) => {
-    console.log("action.type=>", action.type);
+/* <==========  Create postReducer  ==========> */
+/* <==========================================> */
+const postReducer = (state = initialState, action) => {    // reducer have 2 property ==>(state, action)
+    console.log("Action Type =>", action.type);
     switch (action.type) {
-        case ALL_LIST:
+        case ALL_LIST:                      // ALL_LIST Action
             return {
-                ...state,
-                users: action.payload,
+                ...state,                   // copy the all properties in state
+                users: action.payload,      // pass payloard data  ==> users Array
                 loading: false
             }
-        case ERROR_LIST:
+        case ERROR_LIST:                    // ERROR_LIST Action
             return {
-                ...state,
-                users: [],
+                ...state,                   // copy the all properties in state
+                users: [],                  // pass ==> empty users Array
                 loading: false,
             }
         default:
@@ -36,3 +28,29 @@ const postReducer = (state = initialState, action) => {
 }
 
 export default postReducer;
+
+
+
+// Most recomendered to cerate "Reducer" use  ==> switch & case,
+// But can you create "Reducer" use  ==> if & else. 
+// example given below
+
+/* 
+const postReducer = (state = initialState, action) => {
+    if (action.type === ALL_LIST) {
+        return {
+            ...state,
+            users: action.payload,
+        };
+    }
+    else if (action.type === ERROR_LIST) {
+        return {
+            ...state,
+            users: [],
+        };
+    }
+    return state;
+};
+
+export default postReducer;
+*/
